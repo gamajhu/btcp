@@ -73,7 +73,9 @@ a = [5,3,2,4,7,1,8]
 #a = a.include?(9)
 #a = a.include?(3)
 #a = a.first 
-a = a.first (3)
+#a = a.first (3)
+#a= a.reduce (:/)
+a = a.inject {|n,i|n+i}
 puts a
 
 
