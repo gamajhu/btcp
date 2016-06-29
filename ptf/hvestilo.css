@@ -1,6 +1,6 @@
 .block{
   background-color:white;
-  opacity:0.4;
+  opacity:0.6;
   padding:10px;
   width:50%;
   margin-right:auto;
@@ -16,11 +16,15 @@
 body{
   font-family: Lobster;
   color:white;
-  background-color:#4AFF93;
+  background-color:#FF9494;
 }
 h1{
   font-size:4em;
   color: black;
+}
+
+h2 {
+  color: #FFF500;
 }
 .btn-default{
   background-color:#E37222;
@@ -38,34 +42,24 @@ h1{
   padding:40px;
 }
 
-#parrafoDescripcion{
-  font-size:2.2em;
+.parrafoDescripcion{
+  font-size:20px;
   margin-top:50px;
 }
 
-#descripcionimagenes{
-  font-size:2.2em;
-  margin-top:50px;
-}
+
 
 #miFoto{
   width: 400px;
   margin-top:130px;
   margin-left:30px;
+  border-radius: 10px;
 }
 
-.pageThree{
- background-color:#07889B;
-  padding:40px;
-}
 
-#portfolioTitle{
+#experienciatitle{
   margin-top:2%;
   margin-bottom:20px;
-}
-.pageFour{
- background-color:#66B9BF;
- padding:40px;
 }
 
 footer {
@@ -76,4 +70,13 @@ footer {
 .imgleng {
   width: 60px;
   height: 70px;
+}
+
+.redes {
+  width: 50px;  
+  height: 50px;
+
+}
+#redess {
+  text-align: center;
 }
