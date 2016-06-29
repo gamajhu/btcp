@@ -75,7 +75,13 @@ a = [5,3,2,4,7,1,8]
 #a = a.first 
 #a = a.first (3)
 #a= a.reduce (:/)
-a = a.inject {|n,i|n+i}
+#a = a.inject {|n,i|n+i}
+#a = a.join 
+#a = a.insert(2,9)
+#a = a.map {|x| x**2}
+#a = a.push(5,3)
+#a = a.pop
+a = a.pop(2)
 puts a
 
 
