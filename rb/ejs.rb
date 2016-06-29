@@ -81,7 +81,8 @@ a = [5,3,2,4,7,1,8]
 #a = a.map {|x| x**2}
 #a = a.push(5,3)
 #a = a.pop
-a = a.pop(2)
+#a = a.pop(2)
+a = a.select {|x| x.even?}
 puts a
 
 
