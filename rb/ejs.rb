@@ -65,28 +65,35 @@ n = gets.chomp
 objects =[1,2,3,4,5,6]
 
 objects.each {|num| puts num}
-=end
+
 a = [5,3,2,4,7,1,8]
 
-#a.delete (3)
-#a = a.drop (3)
-#a = a.include?(9)
-#a = a.include?(3)
-#a = a.first 
-#a = a.first (3)
-#a= a.reduce (:/)
-#a = a.inject {|n,i|n+i}
-#a = a.join 
-#a = a.insert(2,9)
-#a = a.map {|x| x**2}
-#a = a.push(5,3)
-#a = a.pop
-#a = a.pop(2)
+a.delete (3)
+a = a.drop (3)
+a = a.include?(9)
+a = a.include?(3)
+a = a.first 
+a = a.first (3)
+a= a.reduce (:/)
+a = a.inject {|n,i|n+i}
+a = a.join 
+a = a.insert(2,9)
+a = a.map {|x| x**2}
+a = a.push(5,3)
+a = a.pop
+a = a.pop(2)
 a = a.select {|x| x.even?}
+a = a.shuffle
+a = a.sort
 puts a
 
 
+a = [2,8,80,3,5,60,27,15]
+a.each {|x| puts x if  x%3 == 0 }
+=end
 
+a = [2,4,6,8,10]
+b = [1,3,5,7,9]
 
-
-
+c = a.map{|x| a+b}
+ 
