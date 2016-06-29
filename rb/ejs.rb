@@ -94,6 +94,15 @@ a.each {|x| puts x if  x%3 == 0 }
 
 a = [2,4,6,8,10]
 b = [1,3,5,7,9]
+c = []
+for i in 1 ...5
 
-c = a.map{|x| a+b}
+c = c.push(a[i]+b[i])
+
+end
  
+puts a
+puts"---"
+puts b
+puts"---"
+puts c
