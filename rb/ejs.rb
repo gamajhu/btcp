@@ -46,7 +46,7 @@ n = gets.chomp
  	dividision = n % i == 0
  	puts division 
  end
-=end
+
 
  puts "Introduzca su edad"
  edad = gets.chomp.to_s
@@ -60,5 +60,24 @@ n = gets.chomp
  end
 
  puts conversion
- 
+
+
+objects =[1,2,3,4,5,6]
+
+objects.each {|num| puts num}
+=end
+a = [5,3,2,4,7,1,8]
+
+#a.delete (3)
+#a = a.drop (3)
+#a = a.include?(9)
+#a = a.include?(3)
+#a = a.first 
+a = a.first (3)
+puts a
+
+
+
+
+
 
