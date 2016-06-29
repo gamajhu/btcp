@@ -80,3 +80,16 @@ footer {
 #redess {
   text-align: center;
 }
+
+#logotr {
+  width: 300px;
+  margin-top:50px;
+  margin-left:100px;
+}
+
+#Foto {
+   width: 200px;
+  margin-top:50px;
+  margin-left:100px;
+  border-radius: 10px;
+}
