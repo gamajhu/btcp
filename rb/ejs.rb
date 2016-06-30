@@ -90,19 +90,83 @@ puts a
 
 a = [2,8,80,3,5,60,27,15]
 a.each {|x| puts x if  x%3 == 0 }
-=end
+
 
 a = [2,4,6,8,10]
 b = [1,3,5,7,9]
 c = []
-for i in 1 ...5
+=end
+puts "Encuesta"
 
-c = c.push(a[i]+b[i])
+	#creamos variables contadores incializados en cero para la respuesta del usuario
+	contar_tv_s = 0 #variable que cuenta los que tienen tv
+	contar_tv_n= 0 #variable que cuenta los que  no tienen tv
+	contar_tv_c = 0 #variable que cuenta a los que les gusta el tv a color
+	contar_tv_b= 0 #variable que cuenta a los que les gusta el tv a Blanco y negro
+	contar_tv_comprar_s = 0 #variable que cuenta los que quieren comprar
+	contar_tv_comprar_n= 0 #variable que cuenta los que no quieren comprar
 
-end
- 
-puts a
-puts"---"
-puts b
-puts"---"
-puts c
+	#Encuesta para el usuario
+	while true #este es un ciclo infinito
+	puts "¿Tiene usted televisor? (S/N)"
+	tiene_tv = gets.chomp
+	tiene_tv = tiene_tv.upcase
+
+	puts "¿Le gusta a Color o Blanco y Negro? (C/B)"
+	es_color = gets.chomp
+	es_color= es_color.upcase
+
+	puts "¿Compraría un televisor? (S/N)"
+	comprar = gets.chomp
+	comprar= comprar.upcase
+
+	#Algoritmo para realizar el conteo
+	#Contar los usuarios que tienen TV
+	if tiene_tv == "S"
+		contar_tv_s += 1
+	elsif tiene_tv == "N"
+		contar_tv_n += 1 
+	else 
+		#Stand by 
+
+	end
+
+	#Contar los usuarios que quieren tv a color y  a  #blanco y negro
+	if es_color == "C"
+		contar_tv_c += 1
+	elsif es_color == "B"
+		contar_tv_b += 1 
+	else
+			#Stand by
+	end
+		
+	# Contar usuario s que comprarian tv
+	if comprar == "S"
+		contar_tv_comprar_s += 1
+	elsif comprar == "N"
+		contar_tv_comprar_n += 1
+	else	
+			#Stand by
+	end
+
+	puts "¿Continuar la Encuesta? (S/N)"
+	continuar = gets.chomp
+	continuar = continuar.upcase
+
+	if continuar == "N"
+		break;
+	end
+end#Fin de While
+
+porc_tv_s = (contar_tv_s * 100.0) / (contar_tv_n+contar_tv_s)
+porc_tv_n = (contar_tv_n * 100.0) / (contar_tv_n+contar_tv_s)
+
+porc_tv_c = (contar_tv_c * 100.0) / (contar_tv_c+contar_tv_b)
+porc_tv_b = (contar_tv_b * 100.0) / (contar_tv_c+contar_tv_b)
+
+porc_tv_s_compra = (contar_tv_comprar_s * 100.0) / (contar_tv_comprar_s+contar_tv_comprar_n)
+
+
+
+
+
