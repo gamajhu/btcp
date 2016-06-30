@@ -10,7 +10,7 @@
 
 	<title>Portafolio</title>
 </head>
-<body>
+<body class="cont">
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="container-fluid">
@@ -24,11 +24,11 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav">
-	        
+	     
 	        <li><a href="foracad.html" >Formación Académica</a></li> 
-	        <li><a href="exphv.html">Experiencia</a></li> 
-          <li><a href="idapp.html">Idea Aplicación</a></li>
-	        <li><a href="#redess">Cont&aacute;ctame</a></li> 
+	        <li><a href = "HV.html" href="#xp">Experiencia</a></li> 
+          <li><a href="idapp.html" >Idea Aplicación</a></li>
+	        <li><a href = "HV.html" href="#redess">Cont&aacute;ctame</a></li> 
 	      </ul>
 	    </div>
 	  </div>
@@ -45,14 +45,44 @@
       <div class="pageTwo" id="aboutMe">
         <div class="row ">
           <div class="col-md-6 text-center" id="tituloDescripcion">
-            <h2 clas="ptf">Mario Galeano</h2>
-            <p class="parrafoDescripcion">Soy Jhon Mario Galeano Agudelo, de San Carlos Ant. Me gusta escuchar musica, jugar videojuegos y ahora estoy muy interesado todo lo que tiene que ver con la programación.  <br>
-            </p>
-            
-          </div>
-          <div class="col-md-6">
-            <img src="https://github.com/gamajhu/btcp/blob/master/ptf/imgptf/13043737_192394147819490_1814545956187903504_n.jpg?raw=true" id="Foto">
-
+            <h2 clas="ptf">Contáctame</h2>
+           <div class="span9">
+				<form class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label" for="nombre">Nombre</label>
+							<div class="controls">
+								<input type="text" id="nombre" placeholder="Nombre" required>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="mail" >Mail</label>
+							<div class="controls">
+								<input type="email" id="mail" placeholder="Correo Electrónico" required>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="asunto">Asunto</label>
+							<div class="controls">
+								<input type="text" id="asunto" placeholder="Asunto" required>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="comentarios">Comentarios</label>
+							<div class="controls">
+								<textarea class="input-xlarge" id="comentarios" placeholder="Comentario" rows="3" required></textarea>
+							</div>
+						</div>
+						<div class="form-actions">
+							<input type="submit" class="btn btn-primary" value="Enviar">
+							<input type="reset" class="btn" value="Cancelar">
+						</div>
+				</form>
+			</div>
+	 	</div>
+	 </div>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+         
           </div>
         </div>
       </div>
@@ -78,3 +108,4 @@
 
 </body>
 </html>
+
