@@ -95,7 +95,7 @@ a.each {|x| puts x if  x%3 == 0 }
 a = [2,4,6,8,10]
 b = [1,3,5,7,9]
 c = []
-=end
+
 puts "Encuesta"
 
 	#creamos variables contadores incializados en cero para la respuesta del usuario
@@ -166,7 +166,178 @@ porc_tv_b = (contar_tv_b * 100.0) / (contar_tv_c+contar_tv_b)
 
 porc_tv_s_compra = (contar_tv_comprar_s * 100.0) / (contar_tv_comprar_s+contar_tv_comprar_n)
 
+ 
+# 
+class GoodDog
+	@@count = 0
+	def initialize (nombre,edad)
+		@name = nombre.capitalize
+		@age = edad
+		@@count += 1
+	end
+	def getName ()
+		@name
+	end
+
+	def getAge ()
+		@age
+	end
+
+	def getCount ()
+		@@count
+	end
+	def setName (nombre)
+		@name = nombre
+	end
+	def setAge (edad)
+		@age = edad
+	end
+end
+
+sparky = GoodDog.new("Sparky", 4)
+fido = GoodDog.new("Fido", 6)
+spot = GoodDog.new("Spot", 10)
+
+
+fido.setName("Oso")
+puts fido.getName
+
+fido.setAge("15")
+puts fido.getAge
+
+
+#!/usr/bin/ruby -w# define a class
+class Box
+  # constructor method
+  def initialize(w,h)
+     @width, @height = w, h
+  end   # instance method by default it is public
+  def getArea
+     getWidth() * getHeight
+  end   # define private accessor methods
+  def getWidth
+     @width
+  end
+  def getHeight
+     @height
+  end
+  # make them private
+  private :getWidth, :getHeight   # instance method to print area
+  def printArea
+     @area = getWidth() * getHeight
+     puts "Big box area is : #@area"
+  end
+  # make it protected
+  #protected :printArea
+end# create an object
+box = Box.new(10, 20)# call instance methods
+a = box.getArea()
+puts "Area of the box is : #{a}"# try to call protected or methods
+box.printArea()
 
 
 
+#!/usr/bin/ruby -w# define a class
+class Box
+  BOX_COMPANY = "TATA Inc"
+  # constructor method
+  def initialize(w,h)
+     @width, @height = w, h
+  end
+  # instance method
+  def getArea
+     @width * @height
+  end
+  def printArea
+     @area = @width * @height * 2
+     puts "Big box area is : #@area"
+  end
+end# define a subclass
+class BigBox < Box
+  # add a new instance method
+  def printArea
+  	 
+     @area = @width * @height
+     puts "Big box area is : #@area"
+  end
+  def printArea
+  	super
 
+  end
+end# create an object
+box = BigBox.new(10, 20)# print the area
+box.printArea()
+
+
+#Crea una clase Cuenta con los métodos ingreso, reintegro y transferencia. La clase contendrá un constructor por defecto, un constructor con parámetros, un constructor copia y los métodos getters y setters.
+
+class Cuenta
+
+	def initialize (nombre, cedula, num_cuenta, saldo)
+		@name = nombre
+		@id = cedula
+		@account_num = num_cuenta
+		@amount = saldo
+
+	end
+
+	def ingreso (saldo)
+		@amount += saldo	
+	end
+
+	def retiro (saldo)
+		@amount -= saldo	
+	end
+	def getAmount ()
+		@amount
+	end
+	def transferencia (cuenta2, saldo2)
+		#transfiero de cuenta2 el saldo2
+		@amount = self.getAmount + saldo2
+		#Restar el saldo de que transferi de cuenta2
+		cuenta2.retiro(saldo2)
+	end
+		
+end
+
+cuenta2 = Cuenta.new(
+	"Carlos", 
+	"54877911",
+	"24578954565412547850",
+	100000.0)
+
+cuenta = Cuenta.new(
+	"Juan Eduardo", 
+	"43517283",
+	"10214536547812456874",
+	50000.0)
+
+cuenta.transferencia(cuenta2,30000.0)
+#cuenta.ingreso(150000.0)
+#cuenta.retiro(80000.0)
+
+puts cuenta.getAmount
+puts cuenta2.getAmount
+
+=end
+
+class Contador 
+	
+	def initialize ()
+		@count = 0
+	end
+	def incrementar (num)
+		@count += num
+	end
+	def decrementar (mnum)
+		@count -= mnum
+	end
+
+	def getCount 
+		@count
+	end
+end
+
+count.incrementar(5) 
+count.decrementar(3)
+puts count.getCount
