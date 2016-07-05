@@ -319,7 +319,7 @@ cuenta.transferencia(cuenta2,30000.0)
 puts cuenta.getAmount
 puts cuenta2.getAmount
 
-=end
+
 
 class Contador 
 	
@@ -341,3 +341,118 @@ end
 count.incrementar(5) 
 count.decrementar(3)
 puts count.getCount
+=end
+
+=begin
+Un Empresario ha realizado una reunion para recortar gastos en la empresa, por lo tanto ha tomado la decision de despedir los empleados con menor taza de exito, a los empleados se les tomara en cuenta 3 factores… Ganancia Generadas, Horas de Trabajo Diario y Sueldo, en base a esto el Empresario a decidido que despedira a los empleados que sean menos efectivos que otro.
+El Empresario medira esto de la siguiente manera: 
+Si un empleado A Genera mas ganancia, trabaja mas tiempo diario y tiene un menor sueldo que un empleado B, el empleado B sera despedido.
+-> La cantidad de empleados sera entre 1 y 1,000
+->Las Ganancias no sobrepasaran 1,000,000.
+->Las horas diarias trabajadas no sobrepasaran las 24 horas.
+->El sueldo no sera menor o igual a 0 ni mayor a 1,000,000.
+->Solo se permitiran numeros enteros.=>Valores de entrada, cantidad de empleados, luego cada valor (Ganancia, Horas de Trabajo, Sueldo), separadas por 1 espacio.
+=>Valor de Salida, la cantidad de empleados despedidos.Ejemplo:
+Código:
+Cantidad de Empleados: 5
+Empleado 1: 500 12 300
+Empleado 2: 400 14 400
+Empleado 3: 100 10 500 #Este sera Despedido.
+Empleado 4: 450 11 1000000
+Empleado 5: 50 1 10000 #Este tambien sera Despedido.
+Cantidad de Empleados Despedidos: 2
+=end
+
+class Empleado
+	#Constructor
+	def initialize	(nombre,ganancia,horas_trabajadas,sueldo)
+		@nom = nombre
+		@gan = ganancia
+		@hor = horas_trabajadas
+		@suel = sueldo
+	end
+
+	#Metodos getters
+	def getNombre()
+		@nom
+	end
+	def getGanancia()
+		@gan
+	end
+
+	def getHoras()
+		@hor
+	end
+
+	def getSueldo()
+		@suel
+	end
+
+	#Metodos setters
+	def setNombre(nombre)
+		@nom = nombre
+	end
+
+	def setGanancia (ganancia)
+		@gan = ganancia
+	end
+
+	def setHoras (horas)
+		@hor = horas
+	end
+
+	def setSueldo (sueldo)
+		@suel = sueldo 
+	end
+
+
+ArrayEmp = []
+
+puts "Cantidad de empleados:"
+n = gets.chomp.to_i
+
+
+if ((n>=1) and (n<=1000))
+
+	for i in 1..n
+		puts "Empleado #{i}: "
+		puts "Nombre:"
+		nombre = gets.chomp	
+		puts "Ganancia"
+		ganancia = gets.chomp.to_i
+		#retry if (ganancia > 1000000)
+		puts	"Horas Trabajadas"
+		horas_trabajadas  = gets.chomp.to_i
+		#retry if (horas_trabajadas > 24)
+		puts "Sueldo"
+		sueldo = gets.chomp.to_i
+		#retry if (sueldo<= 0 || sueldo > 1000000)
+
+		empleado = Empleado.new(nombre,ganancia,horas_trabajadas,sueldo)
+
+		ArrayEmp.push(empleado)
+	end#Fin de for
+	cantidad_despedidos = 0 
+	#Comparar el empleado con el resto 
+	for j in 1..ArrayEmp.length
+		
+		emp = ArrayEmp[j]
+	end
+		for k in j+1..ArrayEmp.length
+			
+			emp2 = ArrayEmp[k]
+		end
+			if (emp.getGanancia() < emp2.getGanancia() and
+			emp.getHoras() < emp2.getHoras() and 
+			emp.getSueldo() > emp2.getSueldo())
+			puts "Este empleado #{emp.getNombre}sera despedido."
+			cantidad_despedidos += 1
+			end
+		
+	
+else	
+	puts "La cantidad de empleados es entre 1 y 1.000"
+end
+end
+puts "Cantidad de empleados despedidos #{cantidad_despedidos}"
+
