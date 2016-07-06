@@ -497,11 +497,36 @@ class Producto
 end
 
 class Pelicula < Producto
-
+ 	attr_reader :genero,:anio,:director,:interpretes
+ 	attr_writer :genero,:anio,:director,:interpretes
 end
 
 class Videojuego < Producto
+	attr_reader :estilo,:plataforma
+ 	attr_writer :estilo,:plataforma
+end
 
+class Genero
+ 	ACCION= 1
+	FANTASIA= 2
+	DRAMA = 3
+	AVENTURA = 4
+	PUZZLE = 5
+	INFANTIL = 6
+end
+
+class Estilo
+	ACCION = 1
+	DEPORTE = 2
+	AVENTURA = 3
+	PUZZLE = 4
+	INFANTIL = 5
+end
+
+class Plataforma
+	XBOX = 1
+	PLAYSTATION = 2
+	WII= 3
 end
 
 
@@ -512,6 +537,22 @@ producto.precio_alquiler = 2200.0
 producto.plazo_alquiler	= 10
 producto.alquilado = Alquilado::NO
 
+pelicula = Pelicula.new
+pelicula.genero = Genero::ACCION
+pelicula.anio = 1990
+pelicula.director = "Steven Spilerg"
+pelicula.interpretes = Array.new # tambien se puede inicializar el array creando []
+pelicula.interpretes.push("Gloria Teran")
+
+videojuego = VideoJuego.new
+videojuego.estilo = Estilo::DEPORTE
+videojuego.plataforma = Plataforma::WII 
+
+while true
+
+
+
+	
 puts "Titulo: #{producto.titulo}"
 puts "Tipo: #{producto.tipo}"
 puts "Precio Alquiler #{producto.precio_alquiler}"
