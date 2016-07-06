@@ -363,6 +363,7 @@ Empleado 5: 50 1 10000 #Este tambien sera Despedido.
 Cantidad de Empleados Despedidos: 2
 =end
 
+=begin
 class Empleado
 	#Constructor
 	def initialize	(nombre,ganancia,horas_trabajadas,sueldo)
@@ -456,3 +457,63 @@ end
 end
 puts "Cantidad de empleados despedidos #{cantidad_despedidos}"
 
+=end
+
+=begin
+Crear una aplicacion para gestionar un videoclub.
+El videoclub cuenta con varios tipos de producto
+– Todos los productos tienen:
+Referencia (Titulo, tipo(pelicula/videojuego), precio alquiler, plazo alkiler (dias), alquilado (si/no)– Pelicula
+Genero (accion, fantastica, drama, aventuras, puzzle, infantil), año, director, interpretes.
+– Videojuego
+Estilo (accion, deportes, aventuras, puzzle, infantil), plataforma (Xbox, playstation, wii)Se mantiene un listado de clientes
+– Nº cliente, nombre, direccion, telefono, productos alquilados
+Se guarda un listado de registros de alquiler
+– Cliente, producto, fecha alquiler, fecha devolucion, importeCrear una aplicacion de consola con el siguiente menú:
+– Lista productos
+– Añadir producto
+– Ficha producto
+– Lista clientes
+– Añadir cliente
+– Ficha cliente
+– Alquiler producto
+=end
+class TipoProducto
+
+	PELICULA = 1
+	VIDEOJUEGO = 2
+end
+
+class Alquilado
+
+	SI = true
+	NO = false	
+end
+
+class Producto
+	
+	attr_reader :titulo,:tipo,:precio_alquiler,:plazo_alquiler,:alquilado #se utiliza para omitir los getters y los setters
+	attr_writer :titulo,:tipo,:precio_alquiler,:plazo_alquiler,:alquilado
+end
+
+class Pelicula < Producto
+
+end
+
+class Videojuego < Producto
+
+end
+
+
+producto = Producto.new 
+producto.titulo = "Pelicula Extranjera"
+producto.tipo = TipoProducto::PELICULA
+producto.precio_alquiler = 2200.0
+producto.plazo_alquiler	= 10
+producto.alquilado = Alquilado::NO
+
+puts "Titulo: #{producto.titulo}"
+puts "Tipo: #{producto.tipo}"
+puts "Precio Alquiler #{producto.precio_alquiler}"
+puts "Plazo Alquiler #{producto.plazo_alquiler}"
+puts "¿Alquilado? #{producto.alquilado}"
