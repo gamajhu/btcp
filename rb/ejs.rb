@@ -491,20 +491,40 @@ class Alquilado
 end
 
 class Producto
-	
-	attr_reader :titulo,:tipo,:precio_alquiler,:plazo_alquiler,:alquilado #se utiliza para omitir los getters y los setters
+	# attr_reader y attr_writer se utiliza para omitir los getters y los setters
+	attr_reader :titulo,:tipo,:precio_alquiler,:plazo_alquiler,:alquilado 
 	attr_writer :titulo,:tipo,:precio_alquiler,:plazo_alquiler,:alquilado
-end
 
-class Pelicula < Producto
- 	attr_reader :genero,:anio,:director,:interpretes
- 	attr_writer :genero,:anio,:director,:interpretes
-end
+	def obtenerTipoProducto()
+		if (@tipo == TipoProducto::PELICULA)
+			"Pelicula"
+		else	
+			"Video Juego"
+		end
+	end
 
-class Videojuego < Producto
-	attr_reader :estilo,:plataforma
- 	attr_writer :estilo,:plataforma
-end
+	def estaAlquilado()
+		if (@alquilado == Alquilado::SI)
+
+		else 
+			"NO"
+		end
+	end
+end	
+
+
+
+
+=begin
+	CONSTRUCTOR (Initializes)
+	def initialize (titulo,tipo,precio_alquiler,plazo_alquiler)
+		@titulo = titulo
+		@tipo = tipo
+		@precio_alquiler = precio_alquiler
+		@plazo_alquiler	= plazo_alquiler
+		@alquilado = Alquilado::NO
+	end
+=end
 
 class Genero
  	ACCION= 1
@@ -529,6 +549,78 @@ class Plataforma
 	WII= 3
 end
 
+class Pelicula < Producto
+ 	attr_reader :genero,:anio,:director,:interpretes
+ 	attr_writer :genero,:anio,:director,:interpretes
+ 	def obtenerGenero()
+ 		case @genero
+	 		when Genero::ACCION then "Accion"
+	 		when Genero::FANTASIA then "Fantasia"
+	 		when Genero::DRAMA then "Drama"
+	 		when Genero::AVENTURA then "Aventura"
+	 		when Genero::PUZZLE then "Puzzle"
+	 		when Genero::INFANTIL then "Infantil"
+
+ 	end
+ 	def obtenerInterpretes()
+ 		@interpretes.join(",")
+ 	end
+ 	def to_s
+ 		puts "Pelicula"
+ 		puts "========"
+ 		puts "Titulo : #{@titulo}"
+ 		puts "Tipo : #{super.obtenerTipoProducto}"
+ 		puts "Precio : #{@precio_alquiler}"
+ 		puts "Plazo : #{@plazo_alquiler}"
+ 		puts "Alquilado  : #{estaAlquilado}" #tambien se puede utilizar super.estaAlquilado para acceder al metodo del padre
+ 		puts "Genero : #{self.obtenerGenero}"
+ 		puts "Año : #{@anio}"
+ 		puts "Director : #{@director}"
+ 		puts "interpretes: #{self.obtenerInterpretes}"
+ 	end
+end
+
+class Videojuego < Producto
+	attr_reader :estilo,:plataforma
+ 	attr_writer :estilo,:plataforma
+ 	def obetenerEstilo()
+ 		case @estilo
+	 		when Estilo::ACCION then "Accion"
+	 		when Estilo::DEPORTE then "Deporte"
+	 		when Estilo::AVENTURA then "Aventura"
+	 		when Estilo::PUZZLE then "Puzzle"
+	 		when Estilo::INFANTIL then "Infantil"
+ 	end
+ 	def obetenerPlataforma()
+ 		case @plataforma
+	 		when Plataforma::XBOX then "XBOX"
+	 		when Plataforma::PLAYSTATION then "PLAYSTATION"
+	 		when Plataforma::WII then "WII"
+	 end
+	 def to_s
+	 	puts "Video Juego"
+	 	puts "==========="
+	 	puts "Titulo : #{@titulo}"
+ 		puts "Tipo : #{super.obtenerTipoProducto}"
+ 		puts "Precio : #{@precio_alquiler}"
+ 		puts "Plazo : #{@plazo_alquiler}"
+ 		puts "Alquilado  : #{estaAlquilado}" #tambien se puede utilizar super.estaAlquilado para acceder al metodo del padre
+	 	puts "Estilo : #{self.obetenerEstilo}"
+	 	puts "Plataforma : #{self.obetenerPlataforma}"
+	 end
+end
+
+
+
+
+
+=begin forma 2 con constructor "initialize"
+
+	producto = Producto.new ("Libro de la selva, TipoProducto::PELICULA,2500.0,10")
+
+=end
+
+
 
 producto = Producto.new 
 producto.titulo = "Pelicula Extranjera"
@@ -537,24 +629,26 @@ producto.precio_alquiler = 2200.0
 producto.plazo_alquiler	= 10
 producto.alquilado = Alquilado::NO
 
-pelicula = Pelicula.new
-pelicula.genero = Genero::ACCION
-pelicula.anio = 1990
-pelicula.director = "Steven Spilerg"
-pelicula.interpretes = Array.new # tambien se puede inicializar el array creando []
-pelicula.interpretes.push("Gloria Teran")
+puts producto
+=begin
+	pelicula = Pelicula.new
+	pelicula.genero = Genero::ACCION
+	pelicula.anio = 1990
+	pelicula.director = "Steven Spilerg"0
+	pelicula.interpretes = Array.new # tambien se puede inicializar el array creando []
+	pelicula.interpretes.push("Gloria Teran")
 
-videojuego = VideoJuego.new
-videojuego.estilo = Estilo::DEPORTE
-videojuego.plataforma = Plataforma::WII 
+	videojuego = VideoJuego.new
+	videojuego.estilo = Estilo::DEPORTE
+	videojuego.plataforma = Plataforma::WII 
 
-while true
-
-
-
-	
-puts "Titulo: #{producto.titulo}"
-puts "Tipo: #{producto.tipo}"
-puts "Precio Alquiler #{producto.precio_alquiler}"
-puts "Plazo Alquiler #{producto.plazo_alquiler}"
-puts "¿Alquilado? #{producto.alquilado}"
+	while true
+			puts "[1] Lista de productos"
+			puts "[2] Lista de productos"
+			puts "[3] Lista de productos"
+			puts "[4] Lista de productos"
+			puts "[5] Lista de productos"
+			puts "[6] Lista de productos"
+			puts "[7] Lista de productos"
+			puts "[8] Lista de productos"
+=end
